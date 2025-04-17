@@ -322,9 +322,9 @@ QuestieInit.Stages[3] = function() -- run as a coroutine
         end)
     end
 
-    if Questie.IsTBC and (not Questie.db.global.isIsleOfQuelDanasPhaseReminderDisabled) then
+    if Questie.IsTBC and (not Questie.db.profile.isIsleOfQuelDanasPhaseReminderDisabled) then
         C_Timer.After(2, function()
-            Questie:Print(l10n("Current active phase of Isle of Quel'Danas is '%s'. Check the General settings to change the phase or disable this message.", IsleOfQuelDanas.localizedPhaseNames[Questie.db.global.isleOfQuelDanasPhase]))
+            Questie:Print(l10n("Current active phase of Isle of Quel'Danas is '%s'. Check the General settings to change the phase or disable this message.", IsleOfQuelDanas.localizedPhaseNames[Questie.db.profile.isleOfQuelDanasPhase]))
         end)
     end
 

@@ -103,7 +103,7 @@ function QuestieOptions.tabs.advanced:Initialize()
                     QuestieOptionsUtils.DetermineTheme()
                 end,
             },
-            quelDanasSpacer1 = QuestieOptionsUtils:Spacer(1.45, (not Questie.IsTBC)),
+            quelDanasSpacer1 = QuestieOptionsUtils:Spacer(1.45, not (Questie.IsTBC or Questie.IsWotlk)),
             npcrules_group = {
                 type = "group",
                 order = 1.5,
@@ -121,7 +121,7 @@ function QuestieOptions.tabs.advanced:Initialize()
                         style = 'dropdown',
                         name = function() return l10n("Isle of Quel'Danas Phase") end,
                         desc = function() return l10n("Select the phase fitting your realm progress on the Isle of Quel'Danas"); end,
-                        disabled = function() return (not Questie.IsWotlk) end,
+                        disabled = function() return not (Questie.IsTBC or Questie.IsWotlk) end,
                         get = function() return Questie.db.profile.isleOfQuelDanasPhase; end,
                         set = function(_, key)
                             Questie.db.profile.isleOfQuelDanasPhase = key
@@ -143,7 +143,7 @@ function QuestieOptions.tabs.advanced:Initialize()
                         order = 1.5,
                         name = function() return l10n('Disable Phase reminder'); end,
                         desc = function() return l10n("Enable or disable the reminder on login to set the Isle of Quel'Danas phase"); end,
-                        disabled = function() return (not Questie.IsWotlk) end,
+                        disabled = function() return not (Questie.IsTBC or Questie.IsWotlk) end,
                         width = 1,
                         get = function() return Questie.db.profile.isIsleOfQuelDanasPhaseReminderDisabled; end,
                         set = function(_, value)
